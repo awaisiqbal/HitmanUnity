@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 36c19814c65e4994c9541571c424cb64
+timeCreated: 1473278392
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BB_16x16x1
+    100002: //RootNode
+    100004: BB_1x1x1
+    100006: BB_1x8x1
+    100008: BB_2x1x1
+    100010: BB_2x2x1
+    100012: BB_2x8x1
+    100014: BB_4x1x1
+    100016: BB_4x2x1
+    100018: BB_4x4x1
+    100020: BB_4x8x1
+    100022: BB_8x16x1
+    100024: BB_8x8x1
+    100026: BB_Corner_2x2x1
+    100028: BB_Corner_4x2x1
+    100030: BB_Corner_4x4x1
+    100032: BB_Corner_8x8x1
+    100034: BB_Corner_Alt_4x2x1
+    100036: BB_Hollow_4x4x1
+    100038: BB_Hollow_8x8x1
+    400000: BB_16x16x1
+    400002: //RootNode
+    400004: BB_1x1x1
+    400006: BB_1x8x1
+    400008: BB_2x1x1
+    400010: BB_2x2x1
+    400012: BB_2x8x1
+    400014: BB_4x1x1
+    400016: BB_4x2x1
+    400018: BB_4x4x1
+    400020: BB_4x8x1
+    400022: BB_8x16x1
+    400024: BB_8x8x1
+    400026: BB_Corner_2x2x1
+    400028: BB_Corner_4x2x1
+    400030: BB_Corner_4x4x1
+    400032: BB_Corner_8x8x1
+    400034: BB_Corner_Alt_4x2x1
+    400036: BB_Hollow_4x4x1
+    400038: BB_Hollow_8x8x1
+    2300000: BB_16x16x1
+    2300002: BB_1x1x1
+    2300004: BB_1x8x1
+    2300006: BB_2x1x1
+    2300008: BB_2x2x1
+    2300010: BB_2x8x1
+    2300012: BB_4x1x1
+    2300014: BB_4x2x1
+    2300016: BB_4x4x1
+    2300018: BB_4x8x1
+    2300020: BB_8x16x1
+    2300022: BB_8x8x1
+    2300024: BB_Corner_2x2x1
+    2300026: BB_Corner_4x2x1
+    2300028: BB_Corner_4x4x1
+    2300030: BB_Corner_8x8x1
+    2300032: BB_Corner_Alt_4x2x1
+    2300034: BB_Hollow_4x4x1
+    2300036: BB_Hollow_8x8x1
+    3300000: BB_16x16x1
+    3300002: BB_1x1x1
+    3300004: BB_1x8x1
+    3300006: BB_2x1x1
+    3300008: BB_2x2x1
+    3300010: BB_2x8x1
+    3300012: BB_4x1x1
+    3300014: BB_4x2x1
+    3300016: BB_4x4x1
+    3300018: BB_4x8x1
+    3300020: BB_8x16x1
+    3300022: BB_8x8x1
+    3300024: BB_Corner_2x2x1
+    3300026: BB_Corner_4x2x1
+    3300028: BB_Corner_4x4x1
+    3300030: BB_Corner_8x8x1
+    3300032: BB_Corner_Alt_4x2x1
+    3300034: BB_Hollow_4x4x1
+    3300036: BB_Hollow_8x8x1
+    4300000: BB_16x16x1
+    4300002: BB_8x16x1
+    4300004: BB_Corner_8x8x1
+    4300006: BB_Hollow_4x4x1
+    4300008: BB_Hollow_8x8x1
+    4300010: BB_Corner_Alt_4x2x1
+    4300012: BB_Corner_4x4x1
+    4300014: BB_Corner_4x2x1
+    4300016: BB_1x8x1
+    4300018: BB_2x8x1
+    4300020: BB_Corner_2x2x1
+    4300022: BB_4x1x1
+    4300024: BB_1x1x1
+    4300026: BB_2x1x1
+    4300028: BB_2x2x1
+    4300030: BB_4x2x1
+    4300032: BB_4x4x1
+    4300034: BB_4x8x1
+    4300036: BB_8x8x1
+    6400000: BB_16x16x1
+    6400002: BB_1x1x1
+    6400004: BB_1x8x1
+    6400006: BB_2x1x1
+    6400008: BB_2x2x1
+    6400010: BB_2x8x1
+    6400012: BB_4x1x1
+    6400014: BB_4x2x1
+    6400016: BB_4x4x1
+    6400018: BB_4x8x1
+    6400020: BB_8x16x1
+    6400022: BB_8x8x1
+    6400024: BB_Corner_2x2x1
+    6400026: BB_Corner_4x2x1
+    6400028: BB_Corner_4x4x1
+    6400030: BB_Corner_8x8x1
+    6400032: BB_Corner_Alt_4x2x1
+    6400034: BB_Hollow_4x4x1
+    6400036: BB_Hollow_8x8x1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
