@@ -65,10 +65,33 @@ public class Mover : MonoBehaviour
             if (targetNode != null && m_currentNode != null &&
                 m_currentNode.LinkedNodes.Contains(targetNode))
             {
-                if (targetNode != m_board.GoalNode && targetNode != m_board.KillerNode || m_board.PressurePressed) { 
-                // start the coroutine MoveRoutine
-                StartCoroutine(MoveRoutine(destinationPos, delayTime));
+                if (targetNode != m_board.GoalNode && targetNode != m_board.KillerNode || m_board.PressurePressed) {
+                    // start the coroutine MoveRoutine
+                    List<EnemyManager> foundEnemies = m_board.FindEnemiesAt(targetNode);
+                    if (foundEnemies.Count == 0 ) 
+                        StartCoroutine(MoveRoutine(destinationPos, delayTime));
+                    else
+                    {
+                        bool move = false;
+                        foreach (EnemyManager enemy in foundEnemies)
+                        {
+                           // Debug.Log("jugador: " + transform.forward + "jugador position: " + transform.position + "enemigo: " + (enemy.transform.forward) + "enemigo position: " + enemy.transform.position);
+                            Vector3 enemyMovement = enemy.transform.position + enemy.transform.forward + enemy.transform.forward;
+                            Vector3 playerPosition = transform.position;
+                            Debug.Log("enemyMovement: " + enemyMovement);
+                            if (!playerPosition.Equals(enemyMovement))
+                            {
+                                Debug.Log("enemyMovement: " + enemyMovement + "player position:" + transform.position);
+                                move = true;
+                                Debug.Log("dentro if");
+                            }
+                                
+                        }
+                        if (move)
+                            StartCoroutine(MoveRoutine(destinationPos, delayTime));
+                    }
                 }
+               
             }
             else
             {
