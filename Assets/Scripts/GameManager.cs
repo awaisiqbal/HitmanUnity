@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Linq;
 
 [System.Serializable]
@@ -46,6 +47,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject block;
     public GameObject stone;
+    public GameObject extinguer;
+    public GameObject fire;
+
+    public Text extinguiserText;
 
     // events invoked for StartLevel/PlayLevel/EndLevel coroutines
     public UnityEvent setupEvent;
@@ -134,20 +139,27 @@ public class GameManager : MonoBehaviour
             {
                 m_board.PressurePressed = true;
                 block.transform.Translate(Vector3.down * Time.deltaTime * 5);
-                //TODO hacer con iTween
+            }
+            if(m_board.PlayerNode == m_board.ExtinguerNode)
+            {
+                m_board.ExtintorCollected = true;
+                extinguer.SetActive(false);
+                extinguiserText.text = "x1";
+                //TODO activar canvas 
+
             }
             if (m_board.PlayerNode == m_board.KillerNode)
             {
                 m_board.KillerPressed = true;
                 iTween.MoveTo(stone, iTween.Hash(
-                   "x", 4,
-                   "y", 0,
-                   "z", 6,
+                   "x", m_board.positionToKill.x,
+                   "y", m_board.positionToKill.y,
+                   "z", m_board.positionToKill.z,
                    "delay", 0,
                    "easetype", iTween.EaseType.easeInSine,
                    "speed", 30
                ));
-                List<EnemyManager> enemies = m_board.FindEnemiesAt(m_board.FindNodeAt(new Vector3(4, 0, 6)));
+                List<EnemyManager> enemies = m_board.FindEnemiesAt(m_board.FindNodeAt(m_board.positionToKill));
                 if (enemies.Count != 0)
                 {
                     // ...invoke the Die method on each one
@@ -161,7 +173,11 @@ public class GameManager : MonoBehaviour
                 }
 
             }
-            
+            if(m_board.PlayerNode == m_board.FireNode)
+            {
+                fire.SetActive(false);
+                extinguiserText.text = "x0";
+            }
             // check for level win condition
             m_isGameOver = IsWinner();
 

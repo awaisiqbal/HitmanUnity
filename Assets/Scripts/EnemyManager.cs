@@ -23,6 +23,7 @@ public class EnemyManager : TurnManager
     bool m_isDead = false;
     public bool IsDead { get { return m_isDead; }}
 
+    public Vector3 NextNodePos { get { return m_enemyMover.nextPosiblePosition; } }
     // actions to invoke upon enemy death
     public UnityEvent deathEvent;
 

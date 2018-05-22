@@ -34,11 +34,22 @@ public class Board : MonoBehaviour
     Node m_killerNode;
     public Node KillerNode { get { return m_killerNode; } }
 
-    bool m_pressurePressed;
+    public bool m_pressurePressed;
     public bool PressurePressed { get { return m_pressurePressed; } set { this.m_pressurePressed = value; } }
 
     bool m_killerPressed;
     public bool KillerPressed { get { return m_killerPressed; } set { this.m_killerPressed = value; } }
+
+
+    Node m_extinguerNode;
+    public Node ExtinguerNode { get { return m_extinguerNode; } }
+    bool m_extintorPressed;
+    public bool ExtintorCollected { get { return m_extintorPressed; } set { this.m_extintorPressed = value; } }
+
+    Node m_fireNode;
+    public Node FireNode { get { return m_fireNode; } }
+    bool m_firePressed;
+    public bool FirePressed { get { return m_firePressed; } set { this.m_firePressed = value; } }
 
 
     // iTween parameters for drawing the goal
@@ -62,6 +73,7 @@ public class Board : MonoBehaviour
     public float capturePositionIconSize = 0.4f;
     public Color capturePositionIconColor = Color.blue;
 
+    public Vector3 positionToKill;
 
 	void Awake()
     {
@@ -71,6 +83,8 @@ public class Board : MonoBehaviour
         m_goalNode = FindGoalNode();
         m_pressureNode = FindPressureNode();
         m_killerNode = FindKillerNode();
+        m_extinguerNode = FindExtinguerNode();
+        m_fireNode = FindFireNode();
     }
 
     // sets the AllNodes and m_allNodes fields
@@ -100,6 +114,16 @@ public class Board : MonoBehaviour
     Node FindKillerNode()
     {
         return m_allNodes.Find(n => n.isKillerNode);
+    }
+
+    Node FindExtinguerNode()
+    {
+        return m_allNodes.Find(n => n.isExtintorNode);
+    }
+
+    Node FindFireNode()
+    {
+        return m_allNodes.Find(n => n.isFireNode);
     }
 
     // return the PlayerNode

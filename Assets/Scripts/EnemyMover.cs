@@ -20,6 +20,8 @@ public class EnemyMover : Mover
     // wait time for stationary enemies
     public float standTime = 1f;
 
+    public Vector3 nextPosiblePosition;
+
 
     protected override void Awake()
     {
@@ -96,9 +98,10 @@ public class EnemyMover : Mover
                 yield return new WaitForSeconds(rotateTime);
             }
         }
+        nextPosiblePosition = startPos + transform.TransformVector(directionToMove * 2f);
 
-		// broadcast message at end of movement
-		base.finishMovementEvent.Invoke();
+        // broadcast message at end of movement
+        base.finishMovementEvent.Invoke();
     }
 
     // movement turn for stationary enemies
