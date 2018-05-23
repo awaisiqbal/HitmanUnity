@@ -4352,6 +4352,7 @@ MonoBehaviour:
   stone: {fileID: 945423370}
   extinguer: {fileID: 1230804782}
   fire: {fileID: 799787318}
+  extinguiserText: {fileID: 1771624229}
   setupEvent:
     m_PersistentCalls:
       m_Calls:
