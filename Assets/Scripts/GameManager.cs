@@ -100,14 +100,15 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("START LEVEL");
         m_player.playerInput.InputEnabled = false;
-
+        yield return null;
+        /*
         while (!m_hasLevelStarted)
         {
             //show start screen
             // user presses button to start
             // HasLevelStarted = true
             yield return null;
-        }
+        }*/
 
         // trigger events when we press the StartButton
         if (startLevelEvent != null)
