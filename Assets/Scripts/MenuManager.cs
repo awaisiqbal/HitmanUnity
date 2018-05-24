@@ -5,20 +5,25 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour {
+public class MenuManager : MonoBehaviour
+{
 
     public UnityEvent setupEvent;
 
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        Debug.Log("START");
         if (setupEvent != null)
         {
             setupEvent.Invoke();
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
