@@ -9,16 +9,24 @@ public class LevelSelectionScript : MonoBehaviour
 
     public void PlayLevel1()
     {
+        unloadScene();
         SceneManager.LoadScene(1);
     }
 
     public void PlayLevel2()
     {
+        unloadScene();
         SceneManager.LoadScene(2);
     }
 
     public void PlayLevel3()
     {
+        unloadScene();
         SceneManager.LoadScene(3);
+    }
+
+    public void unloadScene()
+    {
+
     }
 }

@@ -338,4 +338,9 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void moveToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
