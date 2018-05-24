@@ -135,11 +135,13 @@ public class EnemyMover : Mover
 
         // rotate 180 degrees
         FaceDestination();
-
+        nextPosiblePosition = destination;
         // wait for rotation to finish
         yield return new WaitForSeconds(rotateTime);
 
 		// broadcast message at end of movement
 		base.finishMovementEvent.Invoke();
+
+
     }
 }
