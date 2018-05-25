@@ -11,6 +11,8 @@ public enum MovementType
 
 public class EnemyMover : Mover
 {
+    public AudioClip moveSound;
+     AudioSource sound;
     // local direction to move (defaults to local positive z)
     public Vector3 directionToMove = new Vector3(0f, 0f, Board.spacing);
 
@@ -29,6 +31,7 @@ public class EnemyMover : Mover
 
         // EnemyMovers always face the direction they are moving
         faceDestination = true;
+        sound = GetComponent<AudioSource>();
     }
 
     protected override void Start()
@@ -70,8 +73,10 @@ public class EnemyMover : Mover
         Vector3 nextDest = startPos + transform.TransformVector(directionToMove * 2f);
 
         // move to our new destination
-        Move(newDest, 0f);
 
+        Move(newDest, 0f);
+        sound.clip = moveSound;
+        sound.PlayDelayed(0.5f);
         // pause until we complete the movement
         while (isMoving)
         {
@@ -132,8 +137,11 @@ public class EnemyMover : Mover
 
         // destination is always one space directly behind us
         destination = transform.TransformVector(localForward * -1f) + transform.position;
+        //sound
 
         // rotate 180 degrees
+        sound.clip = moveSound;
+        sound.Play();
         FaceDestination();
         nextPosiblePosition = destination;
         // wait for rotation to finish

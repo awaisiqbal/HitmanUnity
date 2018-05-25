@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour
     public UnityEvent endLevelEvent;
     public UnityEvent loseLevelEvent;
 
+    //sound
+    public AudioClip blockFall;
+     AudioSource sound;
+
 
     void Awake()
     {
@@ -67,6 +71,7 @@ public class GameManager : MonoBehaviour
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
         m_player = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
         m_enemies = (Object.FindObjectsOfType<EnemyManager>() as EnemyManager[]).ToList();
+        sound = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -137,8 +142,11 @@ public class GameManager : MonoBehaviour
             // pause one frame
             yield return null;
 
+            //block  fall
             if (m_board.PlayerNode == m_board.PressureNode)
             {
+                sound.clip = blockFall;
+                sound.Play();
                 m_board.PressurePressed = true;
                 block.transform.Translate(Vector3.down * Time.deltaTime * 5);
             }

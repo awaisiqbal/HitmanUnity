@@ -36,6 +36,7 @@ public class Mover : MonoBehaviour
     public Node CurrentNode { get { return m_currentNode; } }
 
     public UnityEvent finishMovementEvent;
+    
 
     // setup the Mover
     protected virtual void Awake()
@@ -105,6 +106,7 @@ public class Mover : MonoBehaviour
 
         // we are moving
         isMoving = true;
+
 
         // set the destination to the destinationPos being passed into the coroutine
         destination = destinationPos;

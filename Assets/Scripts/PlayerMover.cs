@@ -6,12 +6,16 @@ public class PlayerMover : Mover
 {
     // reference to visual arrows
     PlayerCompass m_playerCompass;
+    //move sound
+    public AudioClip moveSound;
+    AudioSource sound;
 
     // invoke the base class Awake method and setup the PlayerMover
     protected override void Awake()
     {
         base.Awake();
         m_playerCompass = Object.FindObjectOfType<PlayerCompass>().GetComponent<PlayerCompass>();
+        sound = GetComponent<AudioSource>();
     }
 
     protected override void Start()
@@ -37,7 +41,11 @@ public class PlayerMover : Mover
 			m_playerCompass.ShowArrows(false);
 		}
 
+        //play sound
+        sound.clip = moveSound;
+        sound.Play();
         // run the parent class MoveRoutine
+        
         yield return StartCoroutine(base.MoveRoutine(destinationPos, delayTime));
 
         // update the Board's PlayerNode

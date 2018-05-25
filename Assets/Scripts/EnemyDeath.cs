@@ -9,7 +9,9 @@ public class EnemyDeath : MonoBehaviour
 
     // reference to Board component
     Board m_board;
-
+    //sound
+    public AudioClip deathSound;
+    AudioSource sound;
     // delay before enemy death
     public float deathDelay = 0f;
 
@@ -28,6 +30,7 @@ public class EnemyDeath : MonoBehaviour
     void Awake()
     {
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
+        sound = GetComponent<AudioSource>();
     }
 
     // move the enemy to a target position
@@ -53,6 +56,10 @@ public class EnemyDeath : MonoBehaviour
     {
         // wait for a short delay before the enemy death
         yield return new WaitForSeconds(deathDelay);
+        //sound
+        sound.clip = deathSound;
+        sound.Play();
+
 
         // get an offscreen position directly above us off camera
         Vector3 offscreenPos = transform.position + offscreenOffset;
