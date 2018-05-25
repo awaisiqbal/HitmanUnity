@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour
 
     //sound
     public AudioClip blockFall;
-     AudioSource sound;
+    public AudioClip gameOverSound;
+    AudioSource sound;
 
 
     void Awake()
@@ -205,6 +206,8 @@ public class GameManager : MonoBehaviour
             }
             // check for level win condition
             m_isGameOver = IsWinner();
+            //win sound
+            if (m_isGameOver) ;
             //m_isGameOver = IsWinner();
 
             // check for the lose condition
@@ -222,7 +225,8 @@ public class GameManager : MonoBehaviour
     {
         // game is over
         m_isGameOver = true;
-
+        sound.clip = gameOverSound;
+        sound.Play();
         // wait for a short delay then...
         yield return new WaitForSeconds(1.5f);
 

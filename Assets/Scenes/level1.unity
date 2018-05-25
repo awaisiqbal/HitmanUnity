@@ -1961,13 +1961,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e525ccde542cd784fb2a9891257dc07c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.16
+  m_Volume: 0.094
   m_Pitch: 0.6
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 111
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5490,6 +5490,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   blockFall: {fileID: 8300000, guid: 3ca8c36e0b796714496524119733ee8f, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 285ee9061a993c2478e4d63e11ad3433, type: 3}
 --- !u!4 &891037011
 Transform:
   m_ObjectHideFlags: 0
