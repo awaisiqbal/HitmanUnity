@@ -48,6 +48,8 @@ public class Node : MonoBehaviour
 
     public bool isFireNode = false;
 
+    public bool isTrapNode = false;
+
     void Awake()
     {
         // find reference to the Board component

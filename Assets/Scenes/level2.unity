@@ -277,7 +277,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 30030771}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &30030773
 Behaviour:
   m_ObjectHideFlags: 0
@@ -3919,6 +3919,7 @@ MonoBehaviour:
   stone: {fileID: 1014896800}
   extinguer: {fileID: 0}
   fire: {fileID: 0}
+  fireTrap: {fileID: 0}
   extinguiserText: {fileID: 0}
   setupEvent:
     m_PersistentCalls:
@@ -7939,7 +7940,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1599857028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -8269,6 +8270,7 @@ GameObject:
   - component: {fileID: 1685212617}
   - component: {fileID: 1685212620}
   - component: {fileID: 1685212621}
+  - component: {fileID: 1685212622}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8378,6 +8380,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimController: {fileID: 1202170846}
   playerDeathTrigger: IsDead
+--- !u!81 &1685212622
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685212616}
+  m_Enabled: 1
 --- !u!4 &1697216283 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 855fe27ac41f64abf96b3e17df623095, type: 3}

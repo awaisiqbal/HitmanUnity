@@ -51,6 +51,10 @@ public class Board : MonoBehaviour
     bool m_firePressed;
     public bool FirePressed { get { return m_firePressed; } set { this.m_firePressed = value; } }
 
+    Node m_trapNode;
+    public Node TrapNode { get { return m_trapNode; } }
+    bool m_trapNodePressed;
+    public bool TrapPressed { get { return m_trapNode; } set { this.m_trapNodePressed = value; } }
 
     // iTween parameters for drawing the goal
     public GameObject goalPrefab;
@@ -85,6 +89,7 @@ public class Board : MonoBehaviour
         m_killerNode = FindKillerNode();
         m_extinguerNode = FindExtinguerNode();
         m_fireNode = FindFireNode();
+        m_trapNode = FindTrapNode();
     }
 
     // sets the AllNodes and m_allNodes fields
@@ -124,6 +129,11 @@ public class Board : MonoBehaviour
     Node FindFireNode()
     {
         return m_allNodes.Find(n => n.isFireNode);
+    }
+
+    Node FindTrapNode()
+    {
+        return m_allNodes.Find(n => n.isTrapNode);
     }
 
     // return the PlayerNode

@@ -240,7 +240,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 30030771}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &30030773
 Behaviour:
   m_ObjectHideFlags: 0
@@ -5423,6 +5423,7 @@ MonoBehaviour:
   stone: {fileID: 945423370}
   extinguer: {fileID: 1230804782}
   fire: {fileID: 799787318}
+  fireTrap: {fileID: 0}
   extinguiserText: {fileID: 1771624229}
   setupEvent:
     m_PersistentCalls:
@@ -8961,6 +8962,7 @@ GameObject:
   - component: {fileID: 1685212617}
   - component: {fileID: 1685212620}
   - component: {fileID: 1685212621}
+  - component: {fileID: 1685212622}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -9070,6 +9072,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimController: {fileID: 1202170846}
   playerDeathTrigger: IsDead
+--- !u!81 &1685212622
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685212616}
+  m_Enabled: 1
 --- !u!4 &1697216283 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 855fe27ac41f64abf96b3e17df623095, type: 3}
@@ -10795,6 +10804,10 @@ Prefab:
       propertyPath: ForceAmount
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8265484, guid: 8a23a06107e96134598493163a37174f, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b421470cd558efa48b54c60debd59321, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a23a06107e96134598493163a37174f, type: 2}
   m_IsPrefabParent: 0

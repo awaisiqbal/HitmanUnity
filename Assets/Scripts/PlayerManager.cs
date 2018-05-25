@@ -35,8 +35,9 @@ public class PlayerManager : TurnManager
     void Update()
     {
 		// if the player is currently moving or if it's not the Player's turn, ignore user input
-        if (playerMover.isMoving || m_gameManager.CurrentTurn != Turn.Player)
+        if (playerMover.isMoving || m_gameManager.CurrentTurn != Turn.Player || m_gameManager.IsGameOver)
         {
+            Debug.Log("GAME ENDED");
             return;
         }
 
@@ -71,6 +72,7 @@ public class PlayerManager : TurnManager
     // invoke any UnityActions on the deathEvent
     public void Die()
     {
+        playerInput.InputEnabled = false;
         if (deathEvent != null)
         {
             deathEvent.Invoke();

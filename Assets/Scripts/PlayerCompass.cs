@@ -46,7 +46,7 @@ public class PlayerCompass : MonoBehaviour
 		// warning if the prefab is not defined in the Inspector
 		if (arrowPrefab == null)
         {
-            Debug.LogWarning("PLAYERCOMPASS SetupArrows ERROR: Missing arrow prefab!");
+            //Debug.LogWarning("PLAYERCOMPASS SetupArrows ERROR: Missing arrow prefab!");
             return;
         }
 
@@ -105,7 +105,7 @@ public class PlayerCompass : MonoBehaviour
 
         if (m_arrows == null || m_arrows.Count != Board.directions.Length)
 		{
-			Debug.LogWarning("PLAYERCOMPASS ShowArrows ERROR: no arrows found!");
+			//Debug.LogWarning("PLAYERCOMPASS ShowArrows ERROR: no arrows found!");
 			return;
 		}
 

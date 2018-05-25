@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public GameObject stone;
     public GameObject extinguer;
     public GameObject fire;
+    public GameObject fireTrap;
 
     public Text extinguiserText;
 
@@ -136,12 +137,12 @@ public class GameManager : MonoBehaviour
             // pause one frame
             yield return null;
 
-            if(m_board.PlayerNode == m_board.PressureNode)
+            if (m_board.PlayerNode == m_board.PressureNode)
             {
                 m_board.PressurePressed = true;
                 block.transform.Translate(Vector3.down * Time.deltaTime * 5);
             }
-            if(m_board.PlayerNode == m_board.ExtinguerNode)
+            if (m_board.PlayerNode == m_board.ExtinguerNode)
             {
                 m_board.ExtintorCollected = true;
                 extinguer.SetActive(false);
@@ -174,13 +175,29 @@ public class GameManager : MonoBehaviour
                 }
 
             }
-            if(m_board.PlayerNode == m_board.FireNode)
+            if (m_board.PlayerNode == m_board.FireNode)
             {
                 fire.SetActive(false);
                 extinguiserText.text = "x0";
             }
+            if (m_board.PlayerNode == m_board.TrapNode)
+            {
+                if (fireTrap == null)
+                {
+                    Debug.Log("FireTrap not set");
+                }
+                else
+                {
+                    fireTrap.SetActive(true);
+                }
+                //m_isGameOver = true;
+                m_player.Die();
+                LoseLevel();
+
+            }
             // check for level win condition
             m_isGameOver = IsWinner();
+            //m_isGameOver = IsWinner();
 
             // check for the lose condition
         }
@@ -195,7 +212,7 @@ public class GameManager : MonoBehaviour
     // trigger the "lose" condition
     IEnumerator LoseLevelRoutine()
     {
-    	// game is over
+        // game is over
         m_isGameOver = true;
 
         // wait for a short delay then...
@@ -208,7 +225,7 @@ public class GameManager : MonoBehaviour
         }
 
         // pause for two seconds and then restart the level
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
         Debug.Log("LOSE! =============================");
 
@@ -334,7 +351,7 @@ public class GameManager : MonoBehaviour
         {
             if (IsEnemyTurnComplete())
             {
-				PlayPlayerTurn(); 
+                PlayPlayerTurn();
             }
         }
     }
@@ -356,5 +373,5 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
-    
+
 }
