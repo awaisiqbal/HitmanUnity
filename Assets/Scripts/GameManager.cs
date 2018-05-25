@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
     }
 
     // restart the current level
-    void RestartLevel()
+    public void RestartLevel()
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
@@ -356,4 +356,5 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+    
 }
