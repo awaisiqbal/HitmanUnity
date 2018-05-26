@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
     public GameObject extinguer;
     public GameObject fire;
     public GameObject fireTrap;
+    public GameObject winSound;
+    public GameObject loseSound;
+    public GameObject blockFallSound;
+    public GameObject putOutFire;
 
     public Text extinguiserText;
 
@@ -60,10 +64,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent endLevelEvent;
     public UnityEvent loseLevelEvent;
 
-    //sound
-    public AudioClip blockFall;
-    public AudioClip gameOverSound;
-    AudioSource sound;
+   
 
 
     void Awake()
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
         m_player = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
         m_enemies = (Object.FindObjectsOfType<EnemyManager>() as EnemyManager[]).ToList();
-        sound = GetComponent<AudioSource>();
+        
     }
 
     void Start()
@@ -146,13 +147,13 @@ public class GameManager : MonoBehaviour
             //block  fall
             if (m_board.PlayerNode == m_board.PressureNode)
             {
-                sound.clip = blockFall;
-                sound.Play();
+                blockFallSound.GetComponent<AudioSource>().Play();
                 m_board.PressurePressed = true;
                 block.transform.Translate(Vector3.down * Time.deltaTime * 5);
             }
             if (m_board.PlayerNode == m_board.ExtinguerNode)
             {
+                extinguer.GetComponent<AudioSource>().Play();
                 m_board.ExtintorCollected = true;
                 extinguer.SetActive(false);
                 extinguiserText.text = "x1";
@@ -186,6 +187,7 @@ public class GameManager : MonoBehaviour
             }
             if (m_board.PlayerNode == m_board.FireNode)
             {
+                putOutFire.GetComponent<AudioSource>().Play();
                 fire.SetActive(false);
                 extinguiserText.text = "x0";
             }
@@ -207,7 +209,8 @@ public class GameManager : MonoBehaviour
             // check for level win condition
             m_isGameOver = IsWinner();
             //win sound
-            if (m_isGameOver) ;
+            if (m_isGameOver)
+                winSound.GetComponent<AudioSource>().Play();
             //m_isGameOver = IsWinner();
 
             // check for the lose condition
@@ -225,19 +228,18 @@ public class GameManager : MonoBehaviour
     {
         // game is over
         m_isGameOver = true;
-        sound.clip = gameOverSound;
-        sound.Play();
         // wait for a short delay then...
         yield return new WaitForSeconds(1.5f);
 
         // ...invoke loseLoveEvent
         if (loseLevelEvent != null)
         {
+            
             loseLevelEvent.Invoke();
         }
 
         // pause for two seconds and then restart the level
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
 
         Debug.Log("LOSE! =============================");
 

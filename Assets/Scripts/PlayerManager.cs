@@ -12,6 +12,8 @@ public class PlayerManager : TurnManager
 	public PlayerMover playerMover;
     public PlayerInput playerInput;
 
+    public GameObject loseSound;
+
     // reference to Board component
     Board m_board;
 
@@ -75,6 +77,8 @@ public class PlayerManager : TurnManager
         playerInput.InputEnabled = false;
         if (deathEvent != null)
         {
+            Debug.Log("dentro muerte sonido");
+            loseSound.GetComponent<AudioSource>().Play();
             deathEvent.Invoke();
         }
     }
