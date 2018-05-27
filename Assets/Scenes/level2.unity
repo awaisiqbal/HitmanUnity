@@ -4311,6 +4311,7 @@ MonoBehaviour:
   winSound: {fileID: 983138039}
   loseSound: {fileID: 595769854}
   blockFallSound: {fileID: 1949853929}
+  putOutFire: {fileID: 0}
   extinguiserText: {fileID: 0}
   setupEvent:
     m_PersistentCalls:
@@ -9193,7 +9194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4702286934062336, guid: 305afb467b598478dbf3ada18b1cc581, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.013
       objectReference: {fileID: 0}
     - target: {fileID: 4702286934062336, guid: 305afb467b598478dbf3ada18b1cc581, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9236,6 +9237,11 @@ Prefab:
     - target: {fileID: 114906779870049302, guid: 305afb467b598478dbf3ada18b1cc581,
         type: 2}
       propertyPath: isKillerNode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114906779870049302, guid: 305afb467b598478dbf3ada18b1cc581,
+        type: 2}
+      propertyPath: isBlockedNode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

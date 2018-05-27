@@ -570,6 +570,11 @@ Prefab:
       propertyPath: isLevelGoal
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114906779870049302, guid: 305afb467b598478dbf3ada18b1cc581,
+        type: 2}
+      propertyPath: isBlockedNode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 305afb467b598478dbf3ada18b1cc581, type: 2}
   m_IsPrefabParent: 0
@@ -5386,6 +5391,7 @@ MonoBehaviour:
   winSound: {fileID: 887164596}
   loseSound: {fileID: 1644319710}
   blockFallSound: {fileID: 11786784}
+  putOutFire: {fileID: 0}
   extinguiserText: {fileID: 0}
   setupEvent:
     m_PersistentCalls:
