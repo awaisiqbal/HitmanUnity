@@ -5,11 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Obstacle : MonoBehaviour
 {
-    BoxCollider m_boxCollider;
 
     void Awake()
     {
-        m_boxCollider = GetComponent<BoxCollider>();
     }
 
     // draw a Gizmo (red cube) to see the obstacle

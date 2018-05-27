@@ -56,8 +56,6 @@ public class Board : MonoBehaviour
 
     Node m_trapNode;
     public Node TrapNode { get { return m_trapNode; } }
-    bool m_trapNodePressed;
-    public bool TrapPressed { get { return m_trapNode; } set { this.m_trapNodePressed = value; } }
 
     // iTween parameters for drawing the goal
     public GameObject goalPrefab;

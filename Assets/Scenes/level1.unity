@@ -9867,7 +9867,6 @@ GameObject:
   - component: {fileID: 1685212617}
   - component: {fileID: 1685212620}
   - component: {fileID: 1685212621}
-  - component: {fileID: 1685212622}
   - component: {fileID: 1685212623}
   m_Layer: 0
   m_Name: Player
@@ -9981,13 +9980,6 @@ MonoBehaviour:
   playerAnimController: {fileID: 1202170846}
   deathSound: {fileID: 8300000, guid: 18b4b14cef7720843b01fa10ac71606a, type: 3}
   playerDeathTrigger: IsDead
---- !u!81 &1685212622
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1685212616}
-  m_Enabled: 1
 --- !u!82 &1685212623
 AudioSource:
   m_ObjectHideFlags: 0
