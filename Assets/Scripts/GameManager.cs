@@ -201,9 +201,8 @@ public class GameManager : MonoBehaviour
                 {
                     fireTrap.SetActive(true);
                 }
-                //m_isGameOver = true;
-                m_player.Die();
-                LoseLevel();
+
+                playerDiedByHostile();
 
             }
             // check for level win condition
@@ -211,11 +210,15 @@ public class GameManager : MonoBehaviour
             //win sound
             if (m_isGameOver)
                 winSound.GetComponent<AudioSource>().Play();
-            //m_isGameOver = IsWinner();
 
             // check for the lose condition
         }
-        // Debug.Log("WIN! ==========================");
+    }
+
+    public void playerDiedByHostile()
+    {
+        m_player.Die();
+        LoseLevel();
     }
 
     public void LoseLevel()
@@ -372,20 +375,20 @@ public class GameManager : MonoBehaviour
 
     public void moveToMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void goLevel1()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
     public void goLevel2()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadSceneAsync(2);
     }
     public void goLevel3()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadSceneAsync(3);
     }
 
 }

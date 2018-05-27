@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,8 +8,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(PlayerDeath))]
 public class PlayerManager : TurnManager
 {
-	// reference to PlayerMover and PlayerInput components
-	public PlayerMover playerMover;
+    // reference to PlayerMover and PlayerInput components
+    public PlayerMover playerMover;
     public PlayerInput playerInput;
 
     public GameObject loseSound;
@@ -20,34 +20,37 @@ public class PlayerManager : TurnManager
     // messages to send when the Player dies
     public UnityEvent deathEvent;
 
+    public Vector3 playerLastPos;
+
     protected override void Awake()
     {
         base.Awake();
 
-		// cache references to PlayerMover and PlayerInput
-		playerMover = GetComponent<PlayerMover>();
+        // cache references to PlayerMover and PlayerInput
+        playerMover = GetComponent<PlayerMover>();
         playerInput = GetComponent<PlayerInput>();
 
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
 
-		// make sure that input is enabled when we begin
-		playerInput.InputEnabled = true;
+        // make sure that input is enabled when we begin
+        playerInput.InputEnabled = true;
+        playerLastPos = transform.position;
     }
 
     void Update()
     {
-		// if the player is currently moving or if it's not the Player's turn, ignore user input
+        // if the player is currently moving or if it's not the Player's turn, ignore user input
         if (playerMover.isMoving || m_gameManager.CurrentTurn != Turn.Player || m_gameManager.IsGameOver)
         {
             Debug.Log("GAME ENDED");
             return;
         }
 
-		// get keyboard input
-		playerInput.GetKeyInput();
+        // get keyboard input
+        playerInput.GetKeyInput();
 
-		// connect user input with PlayerMover's Move methods
-		if (playerInput.V == 0)
+        // connect user input with PlayerMover's Move methods
+        if (playerInput.V == 0)
         {
             if (playerInput.H < 0)
             {
@@ -99,7 +102,15 @@ public class PlayerManager : TurnManager
                 {
                     if (enemy != null)
                     {
-                        enemy.Die();
+                        if ((playerLastPos == enemy.NextNodePos))
+                        {
+                            Debug.Log("Die trying to atack enemie");
+                            m_gameManager.playerDiedByHostile();
+                        }
+                        else
+                        {
+                            enemy.Die();
+                        }
                     }
                 }
             }
@@ -112,6 +123,7 @@ public class PlayerManager : TurnManager
         // capture any enemies standing on the PlayerNode
         CaptureEnemies();
 
+        playerLastPos = transform.position;
         // tell the GameManager the PlayerTurn is complete
         base.FinishTurn();
     }
