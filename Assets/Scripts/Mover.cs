@@ -36,7 +36,7 @@ public class Mover : MonoBehaviour
     public Node CurrentNode { get { return m_currentNode; } }
 
     public UnityEvent finishMovementEvent;
-    
+
 
     // setup the Mover
     protected virtual void Awake()
@@ -66,32 +66,35 @@ public class Mover : MonoBehaviour
             if (targetNode != null && m_currentNode != null &&
                 m_currentNode.LinkedNodes.Contains(targetNode))
             {
-                bool accesswithoutPressing = targetNode == m_board.GoalNode && !m_board.PressurePressed;            //caso en que queramos acceder al objetivo sin pulsar el botón
-                bool accesskillerNode = targetNode == m_board.KillerNode && !m_board.PressurePressed;               //caso en que vayamos a una posición ocn piedra
+                bool accessBlockedNode = targetNode == m_board.BlockedNode && !m_board.PressurePressed;             //caso en que vayamos a una posición ocn piedra
                 bool accessFireNodeWithoutExtinguer = targetNode == m_board.FireNode && !m_board.ExtintorCollected; //caso en el que es fuego y no se tiene el extintor
-                if (!accesswithoutPressing && !accesskillerNode && !accessFireNodeWithoutExtinguer) {
+                if (!accessBlockedNode && !accessFireNodeWithoutExtinguer)
+                {
                     // start the coroutine MoveRoutine
                     List<EnemyManager> foundEnemies = m_board.FindEnemiesAt(targetNode);
-                    if (foundEnemies.Count == 0 ) 
+                    if (foundEnemies.Count == 0)
                         StartCoroutine(MoveRoutine(destinationPos, delayTime));
                     else
                     {
-                        bool move = false;
+                        bool move = true;
                         foreach (EnemyManager enemy in foundEnemies)
                         {
-                            Debug.Log("player pos: "+ transform.position + " Next pos:" +enemy.NextNodePos);
+                            Debug.Log("player pos: " + transform.position + " Next pos:" + enemy.NextNodePos);
                             if (!(transform.position == enemy.NextNodePos))
                             {
                                 Debug.Log("Enemy is looking you");
-                                move = true;
+                                //move = true;
+
                                 break;
                             }
                         }
                         if (move)
+                        {
                             StartCoroutine(MoveRoutine(destinationPos, delayTime));
+                        }
                     }
                 }
-               
+
             }
             else
             {

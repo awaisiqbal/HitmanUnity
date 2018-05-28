@@ -570,6 +570,11 @@ Prefab:
       propertyPath: isLevelGoal
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114906779870049302, guid: 305afb467b598478dbf3ada18b1cc581,
+        type: 2}
+      propertyPath: isBlockedNode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 305afb467b598478dbf3ada18b1cc581, type: 2}
   m_IsPrefabParent: 0
@@ -5386,6 +5391,7 @@ MonoBehaviour:
   winSound: {fileID: 887164596}
   loseSound: {fileID: 1644319710}
   blockFallSound: {fileID: 11786784}
+  putOutFire: {fileID: 0}
   extinguiserText: {fileID: 0}
   setupEvent:
     m_PersistentCalls:
@@ -8167,6 +8173,16 @@ Prefab:
       propertyPath: moveSound
       value: 
       objectReference: {fileID: 8300000, guid: 1bf832c43f79cbe41a411738f53ce2cd, type: 3}
+    - target: {fileID: 114687335600805456, guid: 6fa8368c297ec784e8330501e8d91c19,
+        type: 2}
+      propertyPath: rotateTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114687335600805456, guid: 6fa8368c297ec784e8330501e8d91c19,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fa8368c297ec784e8330501e8d91c19, type: 2}
   m_IsPrefabParent: 0
@@ -9861,7 +9877,6 @@ GameObject:
   - component: {fileID: 1685212617}
   - component: {fileID: 1685212620}
   - component: {fileID: 1685212621}
-  - component: {fileID: 1685212622}
   - component: {fileID: 1685212623}
   m_Layer: 0
   m_Name: Player
@@ -9975,13 +9990,6 @@ MonoBehaviour:
   playerAnimController: {fileID: 1202170846}
   deathSound: {fileID: 8300000, guid: 18b4b14cef7720843b01fa10ac71606a, type: 3}
   playerDeathTrigger: IsDead
---- !u!81 &1685212622
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1685212616}
-  m_Enabled: 1
 --- !u!82 &1685212623
 AudioSource:
   m_ObjectHideFlags: 0

@@ -34,6 +34,9 @@ public class Board : MonoBehaviour
     Node m_killerNode;
     public Node KillerNode { get { return m_killerNode; } }
 
+    Node m_blockedNode;
+    public Node BlockedNode { get { return m_blockedNode; } }
+
     public bool m_pressurePressed;
     public bool PressurePressed { get { return m_pressurePressed; } set { this.m_pressurePressed = value; } }
 
@@ -53,8 +56,6 @@ public class Board : MonoBehaviour
 
     Node m_trapNode;
     public Node TrapNode { get { return m_trapNode; } }
-    bool m_trapNodePressed;
-    public bool TrapPressed { get { return m_trapNode; } set { this.m_trapNodePressed = value; } }
 
     // iTween parameters for drawing the goal
     public GameObject goalPrefab;
@@ -70,8 +71,11 @@ public class Board : MonoBehaviour
 
     // next index of capturePositions to use
     int m_currentCapturePosition = 0;
-	public int CurrentCapturePosition { get { return m_currentCapturePosition; } 
-        set { m_currentCapturePosition = value; } }
+    public int CurrentCapturePosition
+    {
+        get { return m_currentCapturePosition; }
+        set { m_currentCapturePosition = value; }
+    }
 
     // icon and color of each capturePosition
     public float capturePositionIconSize = 0.4f;
@@ -79,7 +83,7 @@ public class Board : MonoBehaviour
 
     public Vector3 positionToKill;
 
-	void Awake()
+    void Awake()
     {
         m_player = Object.FindObjectOfType<PlayerMover>().GetComponent<PlayerMover>();
         GetNodeList();
@@ -87,6 +91,7 @@ public class Board : MonoBehaviour
         m_goalNode = FindGoalNode();
         m_pressureNode = FindPressureNode();
         m_killerNode = FindKillerNode();
+        m_blockedNode = FindBlockedNode();
         m_extinguerNode = FindExtinguerNode();
         m_fireNode = FindFireNode();
         m_trapNode = FindTrapNode();
@@ -119,6 +124,11 @@ public class Board : MonoBehaviour
     Node FindKillerNode()
     {
         return m_allNodes.Find(n => n.isKillerNode);
+    }
+
+    Node FindBlockedNode()
+    {
+        return m_allNodes.Find(n => n.isBlockedNode);
     }
 
     Node FindExtinguerNode()

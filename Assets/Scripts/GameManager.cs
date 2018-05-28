@@ -15,6 +15,7 @@ public enum Turn
 
 public class GameManager : MonoBehaviour
 {
+    private GameController gameController;
     // reference to the GameBoard
     Board m_board;
 
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent endLevelEvent;
     public UnityEvent loseLevelEvent;
 
-   
+
 
 
     void Awake()
@@ -73,7 +74,8 @@ public class GameManager : MonoBehaviour
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
         m_player = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
         m_enemies = (Object.FindObjectsOfType<EnemyManager>() as EnemyManager[]).ToList();
-        
+        gameController = GameController.Instance;
+
     }
 
     void Start()
@@ -201,9 +203,8 @@ public class GameManager : MonoBehaviour
                 {
                     fireTrap.SetActive(true);
                 }
-                //m_isGameOver = true;
-                m_player.Die();
-                LoseLevel();
+
+                playerDiedByHostile();
 
             }
             // check for level win condition
@@ -211,11 +212,15 @@ public class GameManager : MonoBehaviour
             //win sound
             if (m_isGameOver)
                 winSound.GetComponent<AudioSource>().Play();
-            //m_isGameOver = IsWinner();
 
             // check for the lose condition
         }
-        // Debug.Log("WIN! ==========================");
+    }
+
+    public void playerDiedByHostile()
+    {
+        m_player.Die();
+        LoseLevel();
     }
 
     public void LoseLevel()
@@ -234,7 +239,7 @@ public class GameManager : MonoBehaviour
         // ...invoke loseLoveEvent
         if (loseLevelEvent != null)
         {
-            
+
             loseLevelEvent.Invoke();
         }
 
@@ -372,20 +377,29 @@ public class GameManager : MonoBehaviour
 
     public void moveToMenu()
     {
-        SceneManager.LoadScene(0);
+        gameController.CurrentLevel = 0;
+        reloadAsyncLevel();
     }
 
     public void goLevel1()
     {
-        SceneManager.LoadScene(1);
+        gameController.CurrentLevel = 1;
+        reloadAsyncLevel();
     }
     public void goLevel2()
     {
-        SceneManager.LoadScene(2);
+        gameController.CurrentLevel = 2;
+        reloadAsyncLevel();
     }
     public void goLevel3()
     {
-        SceneManager.LoadScene(3);
+        gameController.CurrentLevel = 3;
+        reloadAsyncLevel();
+    }
+
+    public void reloadAsyncLevel()
+    {
+        SceneManager.LoadSceneAsync(gameController.CurrentLevel);
     }
 
 }

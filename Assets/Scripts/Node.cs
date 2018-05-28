@@ -50,6 +50,8 @@ public class Node : MonoBehaviour
 
     public bool isTrapNode = false;
 
+    public bool isBlockedNode = false;
+
     void Awake()
     {
         // find reference to the Board component

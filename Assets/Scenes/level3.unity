@@ -221,6 +221,16 @@ Prefab:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 527c4bb6a0f6f3d4eb056e4a7495096f, type: 3}
+    - target: {fileID: 114817094216374992, guid: c92b07c1575a25d4896dedda2d0bf720,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114817094216374992, guid: c92b07c1575a25d4896dedda2d0bf720,
+        type: 2}
+      propertyPath: rotateTime
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c92b07c1575a25d4896dedda2d0bf720, type: 2}
   m_IsPrefabParent: 0
@@ -4555,6 +4565,11 @@ Prefab:
       propertyPath: m_Name
       value: Node (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114906779870049302, guid: 305afb467b598478dbf3ada18b1cc581,
+        type: 2}
+      propertyPath: isBlockedNode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 305afb467b598478dbf3ada18b1cc581, type: 2}
   m_IsPrefabParent: 0
@@ -6363,7 +6378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a9446083eb34d06ab980d02b88f7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pressurePressed: 1
+  m_pressurePressed: 0
   goalPrefab: {fileID: 1903951257347024, guid: 6675619bb7f824bfc8bc23a2465cf01e, type: 2}
   drawGoalTime: 2
   drawGoalDelay: 1.1
@@ -6442,6 +6457,16 @@ Prefab:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 527c4bb6a0f6f3d4eb056e4a7495096f, type: 3}
+    - target: {fileID: 114817094216374992, guid: c92b07c1575a25d4896dedda2d0bf720,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114817094216374992, guid: c92b07c1575a25d4896dedda2d0bf720,
+        type: 2}
+      propertyPath: rotateTime
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c92b07c1575a25d4896dedda2d0bf720, type: 2}
   m_IsPrefabParent: 0
@@ -7024,6 +7049,16 @@ Prefab:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 477e45a66d830964e80cfb9ec20a052d, type: 3}
+    - target: {fileID: 114957939276883564, guid: 0fdccbc2540232f42aaf965b2dd4f8ed,
+        type: 2}
+      propertyPath: rotateTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114957939276883564, guid: 0fdccbc2540232f42aaf965b2dd4f8ed,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fdccbc2540232f42aaf965b2dd4f8ed, type: 2}
   m_IsPrefabParent: 0
@@ -9671,7 +9706,6 @@ GameObject:
   - component: {fileID: 1685212617}
   - component: {fileID: 1685212620}
   - component: {fileID: 1685212621}
-  - component: {fileID: 1685212622}
   - component: {fileID: 1685212623}
   m_Layer: 0
   m_Name: Player
@@ -9785,13 +9819,6 @@ MonoBehaviour:
   playerAnimController: {fileID: 1202170846}
   deathSound: {fileID: 8300000, guid: 18b4b14cef7720843b01fa10ac71606a, type: 3}
   playerDeathTrigger: IsDead
---- !u!81 &1685212622
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1685212616}
-  m_Enabled: 1
 --- !u!82 &1685212623
 AudioSource:
   m_ObjectHideFlags: 0
