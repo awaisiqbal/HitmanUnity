@@ -165,10 +165,16 @@ public class GameManager : MonoBehaviour
             }
             if (m_board.PlayerNode == m_board.ExtinguerNode)
             {
-                extinguer.GetComponent<AudioSource>().Play();
+                if (!m_board.ExtintorCollected)
+                {
+                    Debug.Log("denotr if extintor");
+                    extinguer.GetComponent<AudioSource>().Play();
+                    
+                }
                 m_board.ExtintorCollected = true;
                 extinguer.SetActive(false);
                 extinguiserText.text = "x1";
+                yield return new WaitForSeconds(0.3f);
                 //TODO activar canvas 
 
             }
@@ -203,6 +209,7 @@ public class GameManager : MonoBehaviour
                     putOutFire.GetComponent<AudioSource>().Play();
                 fire.SetActive(false);
                 extinguiserText.text = "x0";
+                yield return null;
             }
             if (m_board.PlayerNode == m_board.TrapNode)
             {
