@@ -141,6 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84ac8899bfb95e4a8aa1d9934a70217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentLevel: 0
+  CurrentGems: 0
+  keysObtained: 000000
+  isSoundON: 1
 --- !u!4 &6287558
 Transform:
   m_ObjectHideFlags: 0
@@ -590,8 +594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 16, y: 15}
-  m_SizeDelta: {x: -1695.2, y: -1036.9}
+  m_AnchoredPosition: {x: -2, y: 18}
+  m_SizeDelta: {x: -1724.8, y: -1038.8}
   m_Pivot: {x: 0.49999994, y: 0.93317664}
 --- !u!114 &105659982
 MonoBehaviour:
@@ -640,8 +644,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -658,7 +662,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -678,7 +682,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -7.4511204, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.2607601, w: 0}
   m_textInfo:
     textComponent: {fileID: 105659982}
     characterCount: 12
@@ -1110,6 +1114,7 @@ MonoBehaviour:
   delay: 0.2
   loopType: 2
   easeType: 15
+  rotateAxis: 
 --- !u!114 &435192144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4488,7 +4493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1230696711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5671,7 +5676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1549432261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5759,6 +5764,7 @@ MonoBehaviour:
   delay: 0.5
   loopType: 0
   easeType: 16
+  rotateAxis: 
 --- !u!114 &1594049409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6209,6 +6215,7 @@ MonoBehaviour:
   delay: 0.75
   loopType: 0
   easeType: 16
+  rotateAxis: 
 --- !u!114 &1809871323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6300,6 +6307,7 @@ MonoBehaviour:
   delay: 0.25
   loopType: 0
   easeType: 16
+  rotateAxis: 
 --- !u!114 &1841524847
 MonoBehaviour:
   m_ObjectHideFlags: 0

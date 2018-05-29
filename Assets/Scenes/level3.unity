@@ -1009,6 +1009,10 @@ Prefab:
       propertyPath: m_Name
       value: Obstacle (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1038535447829972, guid: e5753111b7433434a8fb831003025d5c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5753111b7433434a8fb831003025d5c, type: 2}
   m_IsPrefabParent: 0
@@ -2970,6 +2974,10 @@ Prefab:
     - target: {fileID: 1038535447829972, guid: e5753111b7433434a8fb831003025d5c, type: 2}
       propertyPath: m_Name
       value: Obstacle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038535447829972, guid: e5753111b7433434a8fb831003025d5c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5753111b7433434a8fb831003025d5c, type: 2}
@@ -5752,6 +5760,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1230804783}
+        m_MethodName: Move
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   startLevelEvent:
@@ -7822,6 +7841,25 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
   m_PrefabInternal: {fileID: 341686732}
+--- !u!114 &1230804783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1230804782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c1f700042af46fd92e557954f12ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 3
+  startXform: {fileID: 0}
+  endXform: {fileID: 0}
+  moveTime: 3
+  delay: 0
+  loopType: 1
+  easeType: 21
+  rotateAxis: z
 --- !u!82 &1230804788
 AudioSource:
   m_ObjectHideFlags: 0
