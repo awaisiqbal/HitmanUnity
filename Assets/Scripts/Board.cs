@@ -57,6 +57,8 @@ public class Board : MonoBehaviour
     Node m_trapNode;
     public Node TrapNode { get { return m_trapNode; } }
 
+    public GameObject KeyPiece;
+
     // iTween parameters for drawing the goal
     public GameObject goalPrefab;
     public float drawGoalTime = 2f;
@@ -210,6 +212,7 @@ public class Board : MonoBehaviour
                 "delay", drawGoalDelay,
                 "easetype", drawGoalEaseType
             ));
+            if (KeyPiece != null) KeyPiece.SetActive(true);
         }
     }
 

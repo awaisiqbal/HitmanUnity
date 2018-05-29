@@ -6,7 +6,8 @@ public enum GraphicMoverMode
 {
     MoveTo,
     ScaleTo,
-    MoveFrom
+    MoveFrom,
+    RotateConstant
 }
 
 public class GraphicMover : MonoBehaviour
@@ -32,7 +33,9 @@ public class GraphicMover : MonoBehaviour
     // ease in-out
     public iTween.EaseType easeType = iTween.EaseType.easeOutExpo;
 
-	// create null objects to store the beginning and ending transform if none is specified
+    public string rotateAxis;
+
+    // create null objects to store the beginning and ending transform if none is specified
     private void Awake()
     {
         if (endXform == null)
@@ -65,25 +68,32 @@ public class GraphicMover : MonoBehaviour
             case GraphicMoverMode.MoveTo:
                 if (startXform != null)
                 {
-					transform.position = startXform.position; 
+                    transform.position = startXform.position;
                 }
                 break;
             case GraphicMoverMode.MoveFrom:
                 if (endXform != null)
                 {
-					transform.position = endXform.position; 
+                    transform.position = endXform.position;
                 }
                 break;
             case GraphicMoverMode.ScaleTo:
                 if (startXform != null)
                 {
-					transform.localScale = startXform.localScale;
+                    transform.localScale = startXform.localScale;
+                }
+                break;
+            case GraphicMoverMode.RotateConstant:
+                if (rotateAxis == null)
+                {
+                    rotateAxis = "y";
+
                 }
                 break;
         }
     }
 
-	// scale/rotate/translate the graphic depending on mode
+    // scale/rotate/translate the graphic depending on mode
     public void Move()
     {
         switch (mode)
@@ -114,6 +124,14 @@ public class GraphicMover : MonoBehaviour
                     "easetype", easeType,
                     "looptype", loopType
                 ));
+                break;
+            case GraphicMoverMode.RotateConstant:
+                iTween.RotateBy(gameObject, iTween.Hash(
+                    rotateAxis, 1.0f,
+                    "time", moveTime,
+                    "easetype", easeType,
+                    "delay", delay,
+                    "looptype", loopType));
                 break;
         }
     }
