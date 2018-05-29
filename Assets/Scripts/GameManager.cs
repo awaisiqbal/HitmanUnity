@@ -149,9 +149,15 @@ public class GameManager : MonoBehaviour
             //block  fall
             if (m_board.PlayerNode == m_board.PressureNode)
             {
-                blockFallSound.GetComponent<AudioSource>().Play();
+                if (!m_board.PressurePressed)
+                {
+                    blockFallSound.GetComponent<AudioSource>().Play();
+                }
                 m_board.PressurePressed = true;
                 block.transform.Translate(Vector3.down * Time.deltaTime * 5);
+
+                yield return null;
+                
             }
             if (m_board.PlayerNode == m_board.ExtinguerNode)
             {
@@ -189,7 +195,8 @@ public class GameManager : MonoBehaviour
             }
             if (m_board.PlayerNode == m_board.FireNode)
             {
-                putOutFire.GetComponent<AudioSource>().Play();
+                if (fire.activeSelf)
+                    putOutFire.GetComponent<AudioSource>().Play();
                 fire.SetActive(false);
                 extinguiserText.text = "x0";
             }
