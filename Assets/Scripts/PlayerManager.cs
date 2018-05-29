@@ -22,6 +22,8 @@ public class PlayerManager : TurnManager
 
     public Vector3 playerLastPos;
 
+    bool m_PlayerDead = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -80,8 +82,12 @@ public class PlayerManager : TurnManager
         playerInput.InputEnabled = false;
         if (deathEvent != null)
         {
-            Debug.Log("dentro muerte sonido");
-            loseSound.GetComponent<AudioSource>().Play();
+            if (!m_PlayerDead)
+            {
+                m_PlayerDead = true;
+                loseSound.GetComponent<AudioSource>().Play();
+            }
+           
             deathEvent.Invoke();
         }
     }

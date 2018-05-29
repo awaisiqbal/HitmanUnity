@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
     bool m_isGameOver = false;
     public bool IsGameOver { get { return m_isGameOver; } set { m_isGameOver = value; } }
 
+
+    // is Player dead?
+    bool m_PlayerDead = false;
+
     // have the end level graphics finished playing?
     bool m_hasLevelFinished = false;
     public bool HasLevelFinished { get { return m_hasLevelFinished; } set { m_hasLevelFinished = value; } }
@@ -209,6 +213,13 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     fireTrap.SetActive(true);
+                   /* if (!m_PlayerDead)
+                    {
+                        m_PlayerDead = true;
+                        loseSound.GetComponent<AudioSource>().Play();
+                    }*/
+                    yield return new WaitForSeconds(0.2f);
+
                 }
 
                 playerDiedByHostile();
@@ -242,6 +253,11 @@ public class GameManager : MonoBehaviour
         m_isGameOver = true;
         // wait for a short delay then...
         yield return new WaitForSeconds(1.5f);
+        /* if (!m_PlayerDead)
+        {
+            m_PlayerDead = true;
+            loseSound.GetComponent<AudioSource>().Play();
+        }*/
 
         // ...invoke loseLoveEvent
         if (loseLevelEvent != null)

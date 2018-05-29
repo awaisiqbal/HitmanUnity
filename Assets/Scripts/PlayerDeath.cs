@@ -20,8 +20,6 @@ public class PlayerDeath : MonoBehaviour
     // play the death animation
     public void Die()
     {
-        sound.clip = deathSound;
-        sound.Play();
         if (playerAnimController != null)
         {
             playerAnimController.SetTrigger(playerDeathTrigger);
