@@ -79,6 +79,10 @@ public class GameManager : MonoBehaviour
         m_player = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
         m_enemies = (Object.FindObjectsOfType<EnemyManager>() as EnemyManager[]).ToList();
         gameController = GameController.Instance;
+        if(gameController == null)
+        {
+            Debug.LogError("NULL");
+        }
 
     }
 
@@ -239,7 +243,10 @@ public class GameManager : MonoBehaviour
             m_isGameOver = IsWinner();
             //win sound
             if (m_isGameOver)
+            {
                 winSound.GetComponent<AudioSource>().Play();
+                StaticInformation.win();
+            }
 
             // check for the lose condition
         }
@@ -418,7 +425,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            gameController.CurrentLevel = 0;
+            StaticInformation.CurrentLevel = 0;
             reloadAsyncLevel();
         }
     }
@@ -431,7 +438,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            gameController.CurrentLevel = 1;
+            StaticInformation.CurrentLevel = 1;
             reloadAsyncLevel();
         }
     }
@@ -443,7 +450,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            gameController.CurrentLevel = 2;
+            StaticInformation.CurrentLevel = 2;
             reloadAsyncLevel();
         }
     }
@@ -455,14 +462,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            gameController.CurrentLevel = 3;
+            StaticInformation.CurrentLevel = 3;
             reloadAsyncLevel();
         }
     }
 
     public void reloadAsyncLevel()
     {
-        reloadAsyncLevel(gameController.CurrentLevel);
+        reloadAsyncLevel(StaticInformation.CurrentLevel);
     }
     public void reloadAsyncLevel(int scene)
     {

@@ -10,23 +10,34 @@ public class LevelSelectionScript : MonoBehaviour
     public void PlayLevel1()
     {
         unloadScene();
-        SceneManager.LoadScene(1);
+        StaticInformation.CurrentLevel = 0;
+        setStarted();
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void PlayLevel2()
     {
         unloadScene();
-        SceneManager.LoadScene(2);
+        StaticInformation.CurrentLevel = 1;
+        setStarted();
+        SceneManager.LoadSceneAsync(2);
     }
 
     public void PlayLevel3()
     {
         unloadScene();
-        SceneManager.LoadScene(3);
+        StaticInformation.CurrentLevel = 2;
+        setStarted();
+        SceneManager.LoadSceneAsync(3);
     }
 
     public void unloadScene()
     {
 
+    }
+
+    public void setStarted()
+    {
+        StaticInformation.gameStarted = true;
     }
 }
