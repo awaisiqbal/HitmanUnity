@@ -155,26 +155,31 @@ public class GameManager : MonoBehaviour
             {
                 if (!m_board.PressurePressed)
                 {
-                    blockFallSound.GetComponent<AudioSource>().Play();
+                    AudioSource audio = blockFallSound.GetComponent<AudioSource>();
+                    audio.Play();
+                    //yield return new WaitForSeconds(audio.clip.length);
                 }
                 m_board.PressurePressed = true;
                 block.transform.Translate(Vector3.down * Time.deltaTime * 5);
 
                 yield return null;
-                
+
             }
             if (m_board.PlayerNode == m_board.ExtinguerNode)
             {
                 if (!m_board.ExtintorCollected)
                 {
                     Debug.Log("denotr if extintor");
-                    extinguer.GetComponent<AudioSource>().Play();
-                    
+                    AudioSource audio = extinguer.GetComponent<AudioSource>();
+                    audio.Play();
+                    yield return new WaitForSeconds(audio.clip.length);
+
+
                 }
                 m_board.ExtintorCollected = true;
                 extinguer.SetActive(false);
                 extinguiserText.text = "x1";
-                yield return new WaitForSeconds(0.3f);
+                //yield return new WaitForSeconds(0.3f);
                 //TODO activar canvas 
 
             }
@@ -206,7 +211,11 @@ public class GameManager : MonoBehaviour
             if (m_board.PlayerNode == m_board.FireNode)
             {
                 if (fire.activeSelf)
-                    putOutFire.GetComponent<AudioSource>().Play();
+                {
+                    AudioSource audio = putOutFire.GetComponent<AudioSource>();
+                    audio.Play();
+                    //yield return new WaitForSeconds(audio.clip.length);
+                }
                 fire.SetActive(false);
                 extinguiserText.text = "x0";
                 yield return null;
@@ -220,13 +229,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     fireTrap.SetActive(true);
-                   /* if (!m_PlayerDead)
-                    {
-                        m_PlayerDead = true;
-                        loseSound.GetComponent<AudioSource>().Play();
-                    }*/
-                    yield return new WaitForSeconds(0.2f);
-
+                    m_PlayerDead = true;
                 }
 
                 playerDiedByHostile();
@@ -260,11 +263,13 @@ public class GameManager : MonoBehaviour
         m_isGameOver = true;
         // wait for a short delay then...
         yield return new WaitForSeconds(1.5f);
-        /* if (!m_PlayerDead)
+        if (m_PlayerDead)
         {
-            m_PlayerDead = true;
-            loseSound.GetComponent<AudioSource>().Play();
-        }*/
+            //TODO
+            AudioSource audio = loseSound.GetComponent<AudioSource>();
+            audio.Play();
+            yield return new WaitForSeconds(audio.clip.length);
+        }
 
         // ...invoke loseLoveEvent
         if (loseLevelEvent != null)
@@ -407,29 +412,61 @@ public class GameManager : MonoBehaviour
 
     public void moveToMenu()
     {
-        gameController.CurrentLevel = 0;
-        reloadAsyncLevel();
+        if (gameController == null)
+        {
+            reloadAsyncLevel(0);
+        }
+        else
+        {
+            gameController.CurrentLevel = 0;
+            reloadAsyncLevel();
+        }
     }
 
     public void goLevel1()
     {
-        gameController.CurrentLevel = 1;
-        reloadAsyncLevel();
+        if (gameController == null)
+        {
+            reloadAsyncLevel(1);
+        }
+        else
+        {
+            gameController.CurrentLevel = 1;
+            reloadAsyncLevel();
+        }
     }
     public void goLevel2()
     {
-        gameController.CurrentLevel = 2;
-        reloadAsyncLevel();
+        if (gameController == null)
+        {
+            reloadAsyncLevel(2);
+        }
+        else
+        {
+            gameController.CurrentLevel = 2;
+            reloadAsyncLevel();
+        }
     }
     public void goLevel3()
     {
-        gameController.CurrentLevel = 3;
-        reloadAsyncLevel();
+        if (gameController == null)
+        {
+            reloadAsyncLevel(3);
+        }
+        else
+        {
+            gameController.CurrentLevel = 3;
+            reloadAsyncLevel();
+        }
     }
 
     public void reloadAsyncLevel()
     {
-        SceneManager.LoadSceneAsync(gameController.CurrentLevel);
+        reloadAsyncLevel(gameController.CurrentLevel);
+    }
+    public void reloadAsyncLevel(int scene)
+    {
+        SceneManager.LoadSceneAsync(scene);
     }
 
 }

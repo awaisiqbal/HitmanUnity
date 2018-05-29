@@ -19,5 +19,6 @@ public class GameController : MonoBehaviour
 
     public int CurrentLevel = 0;
     public int CurrentGems = 0;
+    public bool[] keysObtained = new bool[] { false, false, false };
     public bool isSoundON = true;
 }
