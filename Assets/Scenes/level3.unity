@@ -2630,11 +2630,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 7.9368205
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6
+      value: 6.0640726
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalScale.x
@@ -2650,19 +2650,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.6292364
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.3225858
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.32258573
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.62923646
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2671,6 +2671,10 @@ Prefab:
     - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 54.285004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58737df6d40bb7442ae753b50a911075, type: 2}
