@@ -13,7 +13,7 @@ public class StaticInformation : MonoBehaviour {
 
     public static void win()
     {
-        keysObtained[CurrentLevel] = true;
+        keysObtained[CurrentLevel-1] = true;
     }
 
     public static int getCurrentKeysFound()
@@ -28,10 +28,6 @@ public class StaticInformation : MonoBehaviour {
         }
         return count;
     }
-
-    public static void setCurrentLevel(int level)
-    {
-        CurrentLevel = level;
-    }
+    
     
 }
