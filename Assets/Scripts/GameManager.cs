@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         m_player = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
         m_enemies = (Object.FindObjectsOfType<EnemyManager>() as EnemyManager[]).ToList();
         gameController = GameController.Instance;
-        if(gameController == null)
+        if (gameController == null)
         {
             Debug.LogError("NULL");
         }
@@ -214,15 +214,23 @@ public class GameManager : MonoBehaviour
             }
             if (m_board.PlayerNode == m_board.FireNode)
             {
-                if (fire.activeSelf)
+                if (m_board.ExtintorCollected)
                 {
-                    AudioSource audio = putOutFire.GetComponent<AudioSource>();
-                    audio.Play();
-                    //yield return new WaitForSeconds(audio.clip.length);
+                    if (fire.activeSelf)
+                    {
+                        AudioSource audio = putOutFire.GetComponent<AudioSource>();
+                        audio.Play();
+                        //yield return new WaitForSeconds(audio.clip.length);
+                    }
+                    fire.SetActive(false);
+                    extinguiserText.text = "x0";
+                    yield return null;
                 }
-                fire.SetActive(false);
-                extinguiserText.text = "x0";
-                yield return null;
+                else
+                {
+                    playerDiedByHostile();
+                }
+                
             }
             if (m_board.PlayerNode == m_board.TrapNode)
             {

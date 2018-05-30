@@ -68,7 +68,8 @@ public class Mover : MonoBehaviour
             {
                 bool accessBlockedNode = targetNode == m_board.BlockedNode && !m_board.PressurePressed;             //caso en que vayamos a una posición ocn piedra
                 bool accessFireNodeWithoutExtinguer = targetNode == m_board.FireNode && !m_board.ExtintorCollected; //caso en el que es fuego y no se tiene el extintor
-                if (!accessBlockedNode && !accessFireNodeWithoutExtinguer)
+                                                                                                                    //if (!accessBlockedNode && !accessFireNodeWithoutExtinguer)
+                if (!accessBlockedNode)
                 {
                     // start the coroutine MoveRoutine
                     List<EnemyManager> foundEnemies = m_board.FindEnemiesAt(targetNode);
