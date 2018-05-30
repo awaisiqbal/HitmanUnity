@@ -49,14 +49,26 @@ public class Mover : MonoBehaviour
         // update m_currentNode
         UpdateCurrentNode();
     }
+    public void MoveDelayed(Vector3 destinationPos, float delayTime = 0.25f)
+    {
+        waitMove();
+        Move(destinationPos, delayTime);
+        
+    }
 
-    // public method to invole the MoveRoutine
-    public void Move(Vector3 destinationPos, float delayTime = 0.25f)
+    public void waitMove()
     {
         if (isMoving)
         {
             return;
         }
+    }
+
+
+    // public method to invole the MoveRoutine
+    public void Move(Vector3 destinationPos, float delayTime = 0.0f)
+    {
+        
 
         // only move if the destination is at a valid Node
         if (m_board != null)

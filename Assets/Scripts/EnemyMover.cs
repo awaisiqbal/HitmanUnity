@@ -119,8 +119,8 @@ public class EnemyMover : Mover
     IEnumerator StandRoutine()
     {
         // time to wait
-        yield return new WaitForSeconds(standTime);
-
+        //yield return new WaitForSeconds(standTime);
+        yield return null;
         // broadcast message at end of movement
         base.finishMovementEvent.Invoke();
     }
@@ -145,7 +145,8 @@ public class EnemyMover : Mover
         FaceDestination();
         nextPosiblePosition = destination;
         // wait for rotation to finish
-        yield return new WaitForSeconds(rotateTime);
+        yield return null;
+        //yield return new WaitForSeconds(rotateTime);
 
 		// broadcast message at end of movement
 		base.finishMovementEvent.Invoke();

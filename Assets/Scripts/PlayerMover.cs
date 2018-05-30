@@ -35,11 +35,6 @@ public class PlayerMover : Mover
 
     protected override IEnumerator MoveRoutine(Vector3 destinationPos, float delayTime)
     {
-        // disable PlayerCompass arrows
-		if (m_playerCompass != null)
-		{
-			m_playerCompass.ShowArrows(false);
-		}
 
         //play sound
         sound.clip = moveSound;
