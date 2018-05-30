@@ -474,6 +474,31 @@ public class GameManager : MonoBehaviour
             reloadAsyncLevel();
         }
     }
+    public void goLevel4()
+    {
+        if (gameController == null)
+        {
+            reloadAsyncLevel(4);
+        }
+        else
+        {
+            StaticInformation.CurrentLevel =4;
+            reloadAsyncLevel();
+        }
+    }
+
+    public void goLevel5()
+    {
+        if (gameController == null)
+        {
+            reloadAsyncLevel(5);
+        }
+        else
+        {
+            StaticInformation.CurrentLevel = 5;
+            reloadAsyncLevel();
+        }
+    }
 
     public void reloadAsyncLevel()
     {

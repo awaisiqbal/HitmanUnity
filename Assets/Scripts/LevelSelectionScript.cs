@@ -10,7 +10,7 @@ public class LevelSelectionScript : MonoBehaviour
     public void PlayLevel1()
     {
         unloadScene();
-        StaticInformation.CurrentLevel = 0;
+        StaticInformation.CurrentLevel = 1;
         setStarted();
         SceneManager.LoadSceneAsync(1);
     }
@@ -18,7 +18,7 @@ public class LevelSelectionScript : MonoBehaviour
     public void PlayLevel2()
     {
         unloadScene();
-        StaticInformation.CurrentLevel = 1;
+        StaticInformation.CurrentLevel = 2;
         setStarted();
         SceneManager.LoadSceneAsync(2);
     }
@@ -26,9 +26,23 @@ public class LevelSelectionScript : MonoBehaviour
     public void PlayLevel3()
     {
         unloadScene();
-        StaticInformation.CurrentLevel = 2;
+        StaticInformation.CurrentLevel = 3;
         setStarted();
         SceneManager.LoadSceneAsync(3);
+    }
+    public void PlayLevel4()
+    {
+        unloadScene();
+        StaticInformation.CurrentLevel = 4;
+        setStarted();
+        SceneManager.LoadSceneAsync(4);
+    }
+    public void PlayLevel5()
+    {
+        unloadScene();
+        StaticInformation.CurrentLevel = 5;
+        setStarted();
+        SceneManager.LoadSceneAsync(5);
     }
 
     public void unloadScene()
