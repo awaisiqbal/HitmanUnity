@@ -248,6 +248,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     fireTrap.SetActive(true);
+                    m_board.PlayerNode.ShowTrap();
                     m_PlayerDead = true;
                 }
 

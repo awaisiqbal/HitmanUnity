@@ -27,6 +27,8 @@ public class Node : MonoBehaviour
 
     public GameObject gemModel;
 
+    public GameObject trapModel;
+
     // time for scale animation to play
     public float scaleTime = 0.3f;
 
@@ -237,5 +239,10 @@ public class Node : MonoBehaviour
             return raycastHit.collider.GetComponent<Obstacle>();
         }
         return null;
+    }
+
+    internal void ShowTrap()
+    {
+        trapModel.SetActive(true);
     }
 }
