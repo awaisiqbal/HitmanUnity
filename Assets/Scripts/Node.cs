@@ -184,6 +184,7 @@ public class Node : MonoBehaviour
             Debug.Log("isNULL: " + audio.clip.length);
             audio.Play();
             yield return null;
+            gemModel.SetActive(false);
         }
     }
 

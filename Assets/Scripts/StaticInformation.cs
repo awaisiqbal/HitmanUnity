@@ -36,4 +36,9 @@ public class StaticInformation : MonoBehaviour
     {
         CurrentGems++;
     }
+
+    internal static void removeGem()
+    {
+        CurrentGems--;
+    }
 }

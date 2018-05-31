@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 using System.Linq;
+using System;
 
 [System.Serializable]
 public enum Turn
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour
     // delay in between game stages
     public float delay = 1f;
 
+    public bool gemCollected = false;
+
     public GameObject block;
     public GameObject stone;
     public GameObject extinguer;
@@ -60,7 +64,8 @@ public class GameManager : MonoBehaviour
     public GameObject blockFallSound;
     public GameObject putOutFire;
 
-    public Text extinguiserText;
+    public TextMeshProUGUI extinguiserText;
+    public TextMeshProUGUI diamondText;
 
     // events invoked for StartLevel/PlayLevel/EndLevel coroutines
     public UnityEvent setupEvent;
@@ -76,16 +81,19 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         // populate Board and PlayerManager components
-        m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
-        m_player = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
-        m_enemies = (Object.FindObjectsOfType<EnemyManager>() as EnemyManager[]).ToList();
+        m_board = GameObject.FindObjectOfType<Board>().GetComponent<Board>();
+        m_player = GameObject.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
+        m_enemies = (GameObject.FindObjectsOfType<EnemyManager>() as EnemyManager[]).ToList();
         gameController = GameController.Instance;
         if (gameController == null)
         {
             Debug.LogError("NULL");
         }
+        updateDiamonds();
 
     }
+
+
 
     void Start()
     {
@@ -159,8 +167,10 @@ public class GameManager : MonoBehaviour
             if (m_board.PlayerNode.isGemNode)
             {
                 StaticInformation.CollectGem();
+                gemCollected = true;
                 m_board.PlayerNode.HideGems();
                 yield return new WaitForSeconds(0.5f);
+                updateDiamonds();
             }
             if (m_board.PlayerNode == m_board.PressureNode)
             {
@@ -189,7 +199,7 @@ public class GameManager : MonoBehaviour
                 }
                 m_board.ExtintorCollected = true;
                 extinguer.SetActive(false);
-                extinguiserText.text = "x1";
+                extinguiserText.SetText("1");
                 //yield return new WaitForSeconds(0.3f);
                 //TODO activar canvas 
 
@@ -230,14 +240,14 @@ public class GameManager : MonoBehaviour
                         //yield return new WaitForSeconds(audio.clip.length);
                     }
                     fire.SetActive(false);
-                    extinguiserText.text = "x0";
+                    extinguiserText.SetText("0");
                     yield return null;
                 }
                 else
                 {
                     playerDiedByHostile();
                 }
-                
+
             }
             if (m_board.PlayerNode == m_board.TrapNode)
             {
@@ -268,6 +278,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void updateDiamonds()
+    {
+        diamondText.SetText("" + StaticInformation.CurrentGems);
+    }
+
     public void playerDiedByHostile()
     {
         m_player.Die();
@@ -276,6 +291,11 @@ public class GameManager : MonoBehaviour
 
     public void LoseLevel()
     {
+        if (gemCollected)
+        {
+            StaticInformation.removeGem();
+            gemCollected = false;
+        }
         StartCoroutine(LoseLevelRoutine());
     }
 
@@ -285,7 +305,8 @@ public class GameManager : MonoBehaviour
         // game is over
         m_isGameOver = true;
         // wait for a short delay then...
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
+
         if (m_PlayerDead)
         {
             //TODO
@@ -490,7 +511,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            StaticInformation.CurrentLevel =4;
+            StaticInformation.CurrentLevel = 4;
             reloadAsyncLevel();
         }
     }
