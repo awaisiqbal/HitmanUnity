@@ -15,7 +15,7 @@ public class StaticInformation : MonoBehaviour
 
     public static void win()
     {
-        if (CurrentLevel == 1 || CurrentLevel == 2 || CurrentLevel == 3 || CurrentLevel == 4 || CurrentLevel == 5)
+        if (CurrentLevel == 1 || CurrentLevel == 2 || CurrentLevel == 3)
             keysObtained[CurrentLevel] = true;
     }
 
