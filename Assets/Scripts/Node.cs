@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class Node : MonoBehaviour
     public GameObject geometry;
 
     public GameObject linkPrefab;
+
+    public GameObject gemModel;
 
     // time for scale animation to play
     public float scaleTime = 0.3f;
@@ -52,10 +55,12 @@ public class Node : MonoBehaviour
 
     public bool isBlockedNode = false;
 
+    public bool isGemNode = false;
+
     void Awake()
     {
         // find reference to the Board component
-        m_board = Object.FindObjectOfType<Board>();
+        m_board = GameObject.FindObjectOfType<Board>();
 
         // set the coordinate using the transform's x and z values
         m_coordinate = new Vector2(transform.position.x, transform.position.z);
@@ -88,6 +93,7 @@ public class Node : MonoBehaviour
                 "delay", delay
             ));
         }
+
     }
 
     // given a list of Nodes, return a subset of the list that are neighbors
@@ -141,6 +147,10 @@ public class Node : MonoBehaviour
 
     void InitNeighbors()
     {
+        if (isGemNode)
+        {
+            ShowGem();
+        }
         StartCoroutine(InitNeighborsRoutine());
     }
 
@@ -162,6 +172,28 @@ public class Node : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator HideGem()
+    {
+        if (gemModel != null)
+        {
+            AudioSource audio = gemModel.GetComponent<AudioSource>();
+            Debug.Log("isNULL: " + audio.clip.length);
+            audio.Play();
+            yield return null;
+        }
+    }
+
+    public void HideGems()
+    {
+        isGemNode = false;
+        StartCoroutine(HideGem());
+    }
+
+    void ShowGem()
+    {
+        gemModel.SetActive(true);
     }
 
     // draw a link from this Node to a target Node

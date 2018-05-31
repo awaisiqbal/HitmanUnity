@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,5 +32,8 @@ public class StaticInformation : MonoBehaviour
         return count;
     }
 
-
+    public static void CollectGem()
+    {
+        CurrentGems++;
+    }
 }

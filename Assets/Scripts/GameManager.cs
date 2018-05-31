@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
 
 
+
     void Awake()
     {
         // populate Board and PlayerManager components
@@ -155,6 +156,12 @@ public class GameManager : MonoBehaviour
             yield return null;
 
             //block  fall
+            if (m_board.PlayerNode.isGemNode)
+            {
+                StaticInformation.CollectGem();
+                m_board.PlayerNode.HideGems();
+                yield return new WaitForSeconds(0.5f);
+            }
             if (m_board.PlayerNode == m_board.PressureNode)
             {
                 if (!m_board.PressurePressed)
